@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="ui input">
+    <input type="text" placeholder="Input Item..." id="input">
+    <button class="ui button" onclick="addRow()">Add Item</button>
+  </div>
+
+
+  <table class="ui celled table">
+    <thead>
+      <tr><th>Item</th>
+      <th>Bought?</th>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+  </table>
+
+  <script>
+function addRow() {
+    tbody = document.getElementById("tbody");
+    input = document.getElementById("input").value;
+    checkbox = document.createElement("td");
+    item = document.createElement("td");
+    row = document.createElement("tr");
+
+    item.innerHTML = input;
+    checkbox.innerHTML = "<input type=\"checkbox\">"
+
+    row.appendChild(item)
+    row.appendChild(checkbox)
+
+    tbody.appendChild(row)
+
+}
+
+  </script>
+{% endblock %}
